@@ -1,0 +1,9 @@
+2020/04/30-15:33:41.809994 140538048055040 Log #389: 52 ops saved to Table #390 OK
+2020/04/30-15:33:41.810743 140538048055040 Archiving /home/coder_hk/.config/fcitx/rime/luna_pinyin.userdb/000389.log: OK
+2020/04/30-15:33:41.811029 140538048055040 Table #388: 8 entries OK
+2020/04/30-15:33:41.811480 140538048055040 Table #382: 116 entries OK
+2020/04/30-15:33:41.812741 140538048055040 Table #380: 2405 entries OK
+2020/04/30-15:33:41.813215 140538048055040 Table #385: 252 entries OK
+2020/04/30-15:33:41.813273 140538048055040 Table #390: 52 entries OK
+2020/04/30-15:33:41.813407 140538048055040 Archiving /home/coder_hk/.config/fcitx/rime/luna_pinyin.userdb/MANIFEST-000387: OK
+2020/04/30-15:33:41.818827 140538048055040 **** Repaired leveldb /home/coder_hk/.config/fcitx/rime/luna_pinyin.userdb; recovered 5 files; 73301 bytes. Some data may have been lost. ****

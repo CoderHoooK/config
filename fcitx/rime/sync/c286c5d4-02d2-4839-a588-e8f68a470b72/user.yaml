@@ -1,0 +1,11 @@
+var:
+  last_build_time: 1587536814
+  option:
+    ascii_punct: true
+    full_shape: false
+    simplification: true
+  previously_selected_schema: luna_pinyin
+  schema_access_time:
+    flypy: 1587007536
+    flypyplus: 1587007590
+    luna_pinyin: 1587539039

@@ -1,0 +1,25 @@
+{
+    "metals.sbtScript": "/usr/bin/sbt",
+    "metals.javaHome": "/usr/lib/jvm/java-11-openjdk",
+    "languageserver": {
+		"lua": {
+			"command": "lua-lsp",
+			"filetypes": ["lua"]
+		},
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"gocodeCompletionEnabled": true,
+				"diagnosticsEnabled": true,
+				"lintTool": "golint"
+			}
+		},
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cpp", "objc", "objcpp"]
+        }
+	}
+}
