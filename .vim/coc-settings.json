@@ -1,0 +1,32 @@
+{
+    "metals.javaHome": "/usr/lib/jvm/java-11-openjdk",
+
+     "languageserver": {
+             "efm": {
+                 "command": "/home/coder_hk/Gitee/efm-langserver/efm-langserver",
+                 "args": ["-c","/home/coder_hk/.config/efm-langserver/config.yaml"],
+                 "filetypes": ["vim", "eruby","md"]
+             },
+                    "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        } 
+     }
+}

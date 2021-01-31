@@ -1,0 +1,3 @@
+[submodule ".vim/fcitx.vim"]
+	path = .vim/fcitx.vim
+	url = git@github.com:lilydjwg/fcitx.vim.git

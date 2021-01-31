@@ -1,0 +1,165 @@
+" H--------K
+" H--基本设置--K
+" H--------K
+"vi 
+set nocompatible
+"识别文件格式
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+set completeopt=longest,menu 
+"vim使用鼠标
+set mouse=a
+"编码
+set encoding=utf-8
+"某些插件引起的配色不正确
+let &t_ut=''
+"自动缩进
+set autoindent
+"缩进距离
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+"距离底部n行
+set scrolloff=10
+let mapleader=" "	"将leader键改成空格
+syntax on  "语法高亮
+set number	"标记行号 
+set cursorline	"当前行横线	
+set wrap
+set showcmd
+set wildmenu	"命令补全
+set hlsearch	"查找高亮
+exec "nohlsearch"
+set incsearch	"边输入边高亮
+set ignorecase	"忽略大小写搜索
+set smartcase 	"智能大小写搜索
+"快捷键延迟
+set timeoutlen=150
+
+"noremap = nzz
+"noremap - Nzz
+map R :source ~/.vim/vimrc<CR>
+map W :w<CR>
+map Q :q<CR>
+"加速上下左右
+noremap H 5h
+noremap L 5l
+noremap J 5j
+noremap K 5k
+"分屏
+map sl :set splitright<CR>:vsplit<CR>
+map sh :set nosplitright<CR>:vsplit<CR>
+map sj :set nosplitbelow<CR>:split<CR>
+map sk :set splitbelow<CR>:split<CR>
+"
+"分屏之后打开新文件的操作为:e path
+"各屏之间移动
+"
+map <LEADER>h <C-w>h
+map <LEADER>l <C-w>l
+"map <LEADER>j <C-w>j
+"map <LEADER>k <C-w>k
+
+"分屏大小
+map <up> :res +5<CR>
+map <down> :res -5<CR>
+map <left> :vertical resize-5<CR>
+map <right> :vertical resize+5<CR>
+
+"垂直分屏和水平分屏
+
+"打开新标签页 tabe
+map fh :tabe<CR>
+"移动标签页
+map fj :-tabnext<CR>
+map fk :+tabnext<CR>
+"快捷键取消搜索高亮
+noremap <LEADER><CR> :nohlsearch<CR>
+
+""打开文件树Nerdtree
+map <LEADER>i :NERDTreeToggle<CR>
+"一键编译
+" H--------K
+" H--一键编译--K
+" H--------K
+
+map <F9> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "!./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "!./%<"
+	elseif &filetype == 'java' 
+		exec "!javac %" 
+		exec "!java %<"
+	elseif &filetype == 'sh'
+		:!bash %
+	elseif &filetype == 'python'
+		exec "!python3 %"
+    elseif &filetype == 'html'
+        exec "!chromium % &"
+    elseif &filetype == 'go'
+        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!chromium %.html &"
+    elseif &filetype == 'scala'
+        exec "!scala %"
+    elseif &filetype == 'markdown'
+        exec "MarkdownPreview"
+	endif
+
+endfunc
+"插件安装
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+" File navigation
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Taglist
+Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
+" Error checking
+Plug 'w0rp/ale'
+
+Plug 'superevilmegaco/Clipboard.nvim'
+" Auto Complete
+" Undo Tree
+Plug 'mbbill/undotree/'
+
+" Other visual enhancement
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/vim-cursorword'
+" markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+let g:mkdp_browser = 'firefox'
+" recognized filetypes
+" these filetypes will have MarkdownPreview... commands
+let g:mkdp_filetypes = ['markdown']
+
+
+" Git
+Plug 'rhysd/conflict-marker.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+"快速跳转P
+"启用easymotion插件
+Plug 'easymotion/vim-easymotion'
+nmap ss <Plug>(easymotion-s2)
+" HTML, CSS, JavaScript, PHP, JSON, etc.
+Plug 'elzr/vim-json'
+
+"coc体系"
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"结束安装
+call plug#end()
+
